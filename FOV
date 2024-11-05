@@ -33,7 +33,7 @@ function generate()
     return finalized
 end
 
-task.spawn(function() repeat drawingUI.Name = generate() until not task.wait(10) end)
+task.spawn(function() repeat drawingUI.Name = generate() until not task.wait(5) end)
 
 -- variables
 local drawingIndex = 0
