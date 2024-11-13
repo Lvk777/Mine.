@@ -16,6 +16,8 @@ G2L["11"] = Instance.new("TextLabel")
 G2L["12"] = Instance.new("UITextSizeConstraint")
 G2L["15"] = Instance.new("UIAspectRatioConstraint")
 
+
+
 --Propeties:
 G2L["0"].Name = [[InventoryViewerUI]]
 G2L["0"].Enabled = true
@@ -31,11 +33,11 @@ G2L["1"].BorderColor3 = Color3.fromRGB(0, 0, 0)
 G2L["1"].BorderSizePixel = 0
 G2L["1"].ClipsDescendants = false
 G2L["1"].Draggable = false
-G2L["1"].Position = UDim2.new(0.7, 0, 0.1, 0) -- Ajustado para mover mais para a direita
+G2L["1"].Position = UDim2.new(0.6302621, 0, 0.04693611, 0)
 G2L["1"].Rotation = 0
 G2L["1"].Selectable = false
 G2L["1"].SelectionOrder = 0
-G2L["1"].Size = UDim2.new(0.25, 0, 0.25, 0) -- Ajustado para ser mais proporcional e menor
+G2L["1"].Size = UDim2.new(0.3435898, 0, 0.3138021, 0)
 G2L["1"].Visible = true
 G2L["1"].ZIndex = 1
 G2L["1"].Parent = G2L["0"]
@@ -226,4 +228,4 @@ G2L["15"].AspectRatio = 1.777344
 G2L["15"].Parent = G2L["0"]
 
 --Scripte
-return G2L["0"]
+ return G2L["0"]
