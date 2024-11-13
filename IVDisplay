@@ -50,7 +50,7 @@ do
 				if slotItems.Name ~= "Slot0" and slotItems.Name ~= "Slot50" and slotItems:IsA("ObjectValue") then
 					local currentSlot = slotItems
 					local itemLists = item_list[slotItems.Name]
-					itemLists.Text = `{currentSlot.Slot.Value} -> <font color="rgb(150,150,150)">{if currentSlot.Value then currentSlot.Value else "Empty"}</font> [<font color="rgb(97,41,255)">{if currentSlot.BulletsInMagazine then currentSlot.BulletsInMagazine.Value else "--"}/{if currentSlot.BulletsInReserve then currentSlot.BulletsInReserve.Value else "--"}</font>] [<font color="rgb(97,41,255)">{if currentSlot:FindFirstChild("AttachmentMuzzle") and currentSlot.AttachmentMuzzle.Value ~= nil then currentSlot.AttachmentMuzzle.Value else "--"}/{if currentSlot:FindFirstChild("AttachmentReticle") and currentSlot.AttachmentReticle then currentSlot.AttachmentReticle.Value else "--"}</font>]`
+					itemLists.Text = `{currentSlot.Slot.Value} -> <font color="rgb(150,150,150)">{if currentSlot.Value then currentSlot.Value else "Empty"}</font> [<font color="rgb(41, 41, 255)">{if currentSlot.BulletsInMagazine then currentSlot.BulletsInMagazine.Value else "--"}/{if currentSlot.BulletsInReserve then currentSlot.BulletsInReserve.Value else "--"}</font>] [<font color="rgb(97,41,255)">{if currentSlot:FindFirstChild("AttachmentMuzzle") and currentSlot.AttachmentMuzzle.Value ~= nil then currentSlot.AttachmentMuzzle.Value else "--"}/{if currentSlot:FindFirstChild("AttachmentReticle") and currentSlot.AttachmentReticle then currentSlot.AttachmentReticle.Value else "--"}</font>]`
 				end
 			end
 		else
@@ -64,7 +64,7 @@ do
 			if processedEvent then
 				return nil
 			end
-			if input.KeyCode == Enum.KeyCode.KeypadMinus then
+			if input.KeyCode == Enum.KeyCode.F3 then
 				toggle = not toggle
 			end
 		end)
