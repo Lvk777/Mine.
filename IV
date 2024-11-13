@@ -87,4 +87,7 @@ InventoryViewerEnabled = Value
 
             InventoryDisplay.__init()
             return 0
+        else
+            -- Inventory Viewer script deactivation
+            Inventory_UI.Enabled = false
         end
