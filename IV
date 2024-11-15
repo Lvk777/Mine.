@@ -1,6 +1,4 @@
-InventoryViewerEnabled = Value
-        if InventoryViewerEnabled then
-            -- Inventory Viewer script activation
+-- Inventory Viewer script activation
             local Inventory_UI = loadstring(request({
                 Url = "https://raw.githubusercontent.com/Lvk777/Tests/refs/heads/main/2",
                 Method = "GET",
