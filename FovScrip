@@ -1,8 +1,4 @@
--- FovScript
-
-local RunService = game:GetService("RunService")
-local Camera = workspace.CurrentCamera
-
+-- FovCircle
 local FovCircleEnabled = false
 
 loadstring(game:HttpGet('https://github.com/ipufo1/deez-nuts/blob/main/utility/drawing.lua?raw=true'))();
@@ -14,23 +10,34 @@ Inside.Position = workspace.CurrentCamera.ViewportSize / 2
 Inside.Thickness = 2
 Inside.Visible = false
 
+local Grad = Instance.new('UIGradient')
+Grad.Enabled = true
+Grad.Color = ColorSequence.new({
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 34, 255)), -- Cor inicial
+    ColorSequenceKeypoint.new(0.3, Color3.fromRGB(0, 140, 255)), -- Cor intermediária
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(18, 18, 20)) -- Cor final
+})
+
+Grad.Parent = Inside.obj:FindFirstChildOfClass('UIStroke')
+
 task.spawn(function()
-    while true do
-        if FovCircleEnabled then
-            Inside.Radius = 275 - ((workspace.CurrentCamera.FieldOfView - 70) * 2)
-            Inside.Position = Vector2.new(Camera.ViewportSize.X / 2, Camera.ViewportSize.Y / 2)
-        end
-        task.wait(0.01)
+    while Inside do
+        Grad.Rotation += math.abs(math.sin(tick() * 2)) -- Aumenta a velocidade da animação
+        Inside.Radius = 275 - ((workspace.CurrentCamera.FieldOfView - 70) * 2)
+        task.wait(0.01) -- Aumenta a frequência da atualização
     end
 end)
+
+local function updateFovCircle()
+    local screenSize = Camera.ViewportSize
+    Inside.Position = Vector2.new(screenSize.X / 2, screenSize.Y / 2)
+end
 
 RunService.RenderStepped:Connect(function()
-    Inside.Visible = FovCircleEnabled
-end)
-
-return {
-    setFovCircleEnabled = function(value)
-        FovCircleEnabled = value
-        print('Fov Circle Status =', value)
+    if FovCircleEnabled then
+        updateFovCircle()
+        Inside.Visible = true
+    else
+        Inside.Visible = false
     end
-}
+end)
