@@ -40,13 +40,3 @@ game:GetService("RunService").RenderStepped:Connect(function()
         Inside.Visible = false
     end
 end)
-
-LeftGroupBox:AddToggle('FovCircleToggle', {
-    Text = 'Fov Circle',
-    Default = false,
-    Tooltip = 'Toggle Fov Circle',
-    Callback = function(Value)
-        FovCircleEnabled = Value
-        print('Fov Circle Status =', Value)
-    end
-})
