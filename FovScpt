@@ -1,5 +1,4 @@
 -- FovCircle
-local FovCircleEnabled = false
 
 loadstring(game:HttpGet('https://github.com/ipufo1/deez-nuts/blob/main/utility/drawing.lua?raw=true'))();
 local Inside = Drawing.new('Circle')
