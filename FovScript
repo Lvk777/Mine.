@@ -1,4 +1,6 @@
--- FovCircle
+-- fov_circle.lua
+
+local FovCircleEnabled = false
 
 loadstring(game:HttpGet('https://github.com/ipufo1/deez-nuts/blob/main/utility/drawing.lua?raw=true'))();
 local Inside = Drawing.new('Circle')
@@ -40,3 +42,10 @@ RunService.RenderStepped:Connect(function()
         Inside.Visible = false
     end
 end)
+
+return {
+    setFovCircleEnabled = function(value)
+        FovCircleEnabled = value
+        print('Fov Circle Status =', value)
+    end
+}
