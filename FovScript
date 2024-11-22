@@ -15,24 +15,17 @@ Inside.Thickness = 2
 Inside.Visible = false
 
 task.spawn(function()
-    while Inside do
-        Inside.Radius = 275 - ((workspace.CurrentCamera.FieldOfView - 70) * 2)
+    while true do
+        if FovCircleEnabled then
+            Inside.Radius = 275 - ((workspace.CurrentCamera.FieldOfView - 70) * 2)
+            Inside.Position = Vector2.new(Camera.ViewportSize.X / 2, Camera.ViewportSize.Y / 2)
+        end
         task.wait(0.01)
     end
 end)
 
-local function updateFovCircle()
-    local screenSize = Camera.ViewportSize
-    Inside.Position = Vector2.new(screenSize.X / 2, screenSize.Y / 2)
-end
-
 RunService.RenderStepped:Connect(function()
-    if FovCircleEnabled then
-        updateFovCircle()
-        Inside.Visible = true
-    else
-        Inside.Visible = false
-    end
+    Inside.Visible = FovCircleEnabled
 end)
 
 return {
