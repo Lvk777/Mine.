@@ -1,28 +1,38 @@
-loadstring(game:HttpGet('https://github.com/ipufo1/deez-nuts/blob/main/utility/drawing.lua?raw=true'))();
-local Inside = Drawing.new('Circle')
-Inside.Filled = false
-Inside.Color = Color3.new(1, 1, 1)
-Inside.Radius = 275
-Inside.Position = workspace.CurrentCamera.ViewportSize / 2
-Inside.Thickness = 2
+local Inside
 
-local Grad = Instance.new('UIGradient')
-Grad.Enabled = true
-Grad.Color = ColorSequence.new({
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 34, 255)), -- Cor inicial
-    ColorSequenceKeypoint.new(0.3, Color3.fromRGB(0, 140, 255)), -- Cor intermediária
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(18, 18, 20)) -- Cor final
-})
+local function createFovCircle()
+    Inside = Drawing.new('Circle')
+    Inside.Filled = false
+    Inside.Color = Color3.new(1, 1, 1)
+    Inside.Radius = 275
+    Inside.Position = workspace.CurrentCamera.ViewportSize / 2
+    Inside.Thickness = 2
 
-Grad.Parent = Inside.obj:FindFirstChildOfClass('UIStroke')
+    local Grad = Instance.new('UIGradient')
+    Grad.Enabled = true
+    Grad.Color = ColorSequence.new({
+        ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 34, 255)), -- Cor inicial
+        ColorSequenceKeypoint.new(0.3, Color3.fromRGB(0, 140, 255)), -- Cor intermediária
+        ColorSequenceKeypoint.new(1, Color3.fromRGB(18, 18, 20)) -- Cor final
+    })
 
-task.spawn(function()
-    while Inside do
-        Grad.Rotation += math.abs(math.sin(tick() * 2)) -- Aumenta a velocidade da animação
-        Inside.Radius = 275 - ((workspace.CurrentCamera.FieldOfView - 70) * 2)
-        task.wait(0.01) -- Aumenta a frequência da atualização
+    Grad.Parent = Inside.obj:FindFirstChildOfClass('UIStroke')
+
+    task.spawn(function()
+        while Inside do
+            Grad.Rotation += math.abs(math.sin(tick() * 2)) -- Aumenta a velocidade da animação
+            Inside.Radius = 275 - ((workspace.CurrentCamera.FieldOfView - 70) * 2)
+            task.wait(0.01) -- Aumenta a frequência da atualização
+        end
+    end)
+end
+
+local function destroyFovCircle()
+    if Inside then
+        Inside:Remove()
+        Inside = nil
     end
-end)
+end
 
 local function updateFovCircle()
     local screenSize = Camera.ViewportSize
