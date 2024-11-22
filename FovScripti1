@@ -38,3 +38,9 @@ local function updateFovCircle()
     local screenSize = Camera.ViewportSize
     Inside.Position = Vector2.new(screenSize.X / 2, screenSize.Y / 2)
 end
+
+return {
+    createFovCircle = createFovCircle,
+    destroyFovCircle = destroyFovCircle,
+    updateFovCircle = updateFovCircle
+}
