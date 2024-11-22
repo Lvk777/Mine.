@@ -21,7 +21,7 @@ local function createFovCircle()
 
     task.spawn(function()
         while Inside do
-            Grad.Rotation += math.abs(math.sin(tick() * 2)) -- Aumenta a velocidade da animação
+            Grad.Rotation += math.abs(math.sin(tick() * 4)) -- Aumenta a velocidade da animação
             Inside.Radius = 275 - ((workspace.CurrentCamera.FieldOfView - 70) * 2)
             task.wait(0.01) -- Aumenta a frequência da atualização
         end
