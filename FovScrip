@@ -1,4 +1,3 @@
--- FovCircle
 local FovCircleEnabled = false
 
 loadstring(game:HttpGet('https://github.com/ipufo1/deez-nuts/blob/main/utility/drawing.lua?raw=true'))();
@@ -29,11 +28,11 @@ task.spawn(function()
 end)
 
 local function updateFovCircle()
-    local screenSize = Camera.ViewportSize
+    local screenSize = workspace.CurrentCamera.ViewportSize
     Inside.Position = Vector2.new(screenSize.X / 2, screenSize.Y / 2)
 end
 
-RunService.RenderStepped:Connect(function()
+game:GetService("RunService").RenderStepped:Connect(function()
     if FovCircleEnabled then
         updateFovCircle()
         Inside.Visible = true
