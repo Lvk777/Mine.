@@ -1,6 +1,7 @@
 local Inside
 
 local function createFovCircle()
+    loadstring(game:HttpGet('https://github.com/ipufo1/deez-nuts/blob/main/utility/drawing.lua?raw=true'))()
     Inside = Drawing.new('Circle')
     Inside.Filled = false
     Inside.Color = Color3.new(1, 1, 1)
